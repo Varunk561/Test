@@ -1,4 +1,6 @@
-package com.util;
+package main.java.com.util;
+
+//package com.util;
 
 import java.awt.Desktop.Action;
 
@@ -11,7 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.util.TestBase;
+import main.java.com.*;
+import test.java.com.util.TestBase;
 
 public class re_usables extends TestBase {
 	

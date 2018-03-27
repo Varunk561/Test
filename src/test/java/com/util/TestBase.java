@@ -1,10 +1,10 @@
-package com.util;
+package test.java.com.util;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.util.re_usables;
+import main.java.com.util.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

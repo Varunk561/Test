@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/selenium-java-2.53.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/selenium-java-2.53.1-srcs.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/libs/apache-mime4j-0.6.jar"/>
@@ -25,5 +29,10 @@
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/libs/netty-3.5.7.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/libs/phantomjsdriver-1.2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Varun.k/Downloads/selenium-java-2.53.1/selenium-2.53.1/libs/testng-6.9.9.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
