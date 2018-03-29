@@ -127,7 +127,7 @@ public class re_usables extends TestBase {
 		
 		WebElement usrmgmt = driver.findElement(By.xpath("//*[text()='User Management']"));
 		usrmgmt.click();
-		WebElement accounts = driver.findElement(By.xpath("//*[@*='ng-tns-c8-21 k-link']"));
+		WebElement accounts = driver.findElement(By.xpath("//*[@*='ng-tns-c8-28 k-link']"));
 		accounts.click();
 		Thread.sleep(2000);
 		

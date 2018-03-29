@@ -4,6 +4,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.thoughtworks.selenium.Wait;
+
 import main.java.com.util.*;
 
 import java.io.FileInputStream;
@@ -21,6 +23,7 @@ public class TestBase{
 	
 	public static WebDriver driver;
 	public static Properties prop;
+	public static WebDriver Wait;
 	
 	@BeforeTest
 	public void Begin() throws InterruptedException, IOException{
@@ -37,6 +40,7 @@ public class TestBase{
 		
 		driver = new FirefoxDriver();
 		driver.get(prop.getProperty("URL"));
+		driver.manage().timeouts().wait();
 		
 		
 	}
@@ -44,7 +48,11 @@ public class TestBase{
     
 	
 	@Test
+	
+	//Test Cases
 	public void TestCases() throws InterruptedException{
+		
+		//Login
 		
 		re_usables.Login();
 		
@@ -54,7 +62,11 @@ public class TestBase{
 		
 		re_usables.Plant();*/
 		
+		//user creation
+		
 		re_usables.CreateUser();
+		
+		//delete user
 		
 		re_usables.DeleteUser();
 		
