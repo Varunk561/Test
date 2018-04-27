@@ -3,6 +3,9 @@ package main.java.com.util;
 //package com.util;
 
 import java.awt.Desktop.Action;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -12,7 +15,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
+import junit.framework.Assert;
 import main.java.com.*;
 import test.java.com.util.TestBase;
 
@@ -206,6 +213,103 @@ public class re_usables extends TestBase {
 	}
 	
 	
+	public void PlantEfficiency() throws InterruptedException{
+		
+		
+		WebElement planteff = driver.findElement(By.xpath("//*[text()='Plant Efficiency']"));
+		planteff.click();
+		
+		WebElement HAL = driver.findElement(By.xpath(".//*[@id='k-panelbar-item-Plant Efficiency - HAL']/span"));
+		HAL.click();
+		
+		
+		//checking filter date
+		String monthdate = driver.findElement(By.xpath("//*[@*='Date' and following::*[text()='To']]")).getText();
+		
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		
+		Date date = new Date();
+		date.getDate();
+		
+		
+		if(monthdate.equals(date)){
+			
+			System.out.println("Filter correct and applying");
+			
+			driver.findElement(By.xpath("//*[text()='Apply']")).click();
+			
+			
+		}else{
+			
+			System.out.println("filter is not set");
+			
+			driver.findElement(By.xpath("//*[@*='k-icon k-i-calendar' and following::*[text()='To']]")).click();
+			
+			driver.findElement(By.xpath("//*[@*='owl-dt-calendar-cell-content owl-dt-calendar-cell-selected']")).click();
+			
+			driver.findElement(By.xpath("//*[text()='Apply']")).click();
+		}
+		
+		try{
+			
+			int count = 10;
+			
+			String stoppages = driver.findElement(By.xpath("//*[@*='count-total' and following::*[text()='STOPPAGES']]")).getText();
+			
+			Assert.assertEquals(stoppages, count);
+			
+			
+			
+		}catch(Exception e){
+			
+			e.printStackTrace();
+			System.out.println("More stoppages are present");
+			
+			
+		}
+	}
+	
+	
+	public static void uploadCode() throws FindFailed, InterruptedException{
+		
+		String filepath = "C:\\Users\\Varun.k\\Downloads";
+		String inputFilePath = "C:\\Users\\Varun.k\\Downloads";
+		
+		WebElement config = driver.findElement(By.xpath("//*[text()='Configuration' and preceding::*[text()='Configuration']]"));
+		config.click();
+		
+		WebElement reasoncode = driver.findElement(By.xpath(".//*[@id='k-panelbar-item-default-51']/span"));
+		reasoncode.click();
+		
+		WebElement plantID  = driver.findElement(By.id("05de7a6e-5ec8-40fb-bf9b-70503fa5e34e"));
+		plantID.click();
+		plantID.sendKeys("Kamari");
+		plantID.submit();
+		 
+		WebElement failuretype = driver.findElement(By.id("c8409a58-3b63-4b91-99ba-3831f64ffe4f"));
+		failuretype.click();
+		failuretype.sendKeys("Mechanical");
+		failuretype.submit();
+		
+		WebElement uploadbtn = driver.findElement(By.xpath("//*[@*='action-icon ml-sm-auto button-click ng-star-inserted']"));
+		uploadbtn.click();
+		
+		WebElement browse = driver.findElement(By.xpath("//*[@*='btn btn-default btn-file']"));
+		browse.click();
+		
+		Screen s = new Screen();
+		Pattern fileInputTextBox = new Pattern(filepath + "FileTextBox.PNG");
+		Pattern openButton = new Pattern(filepath + "OpenButton.PNG");
+		s.wait(fileInputTextBox, 20);
+		
+		s.type(fileInputTextBox, inputFilePath + "Reason Code Operational.csv");
+		s.click(openButton);
+		
+		
+		
+		
+		
+	}
 		
 }
 

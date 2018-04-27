@@ -1,6 +1,9 @@
 package test.java.com.util;
 
 import org.testng.annotations.AfterTest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,6 +21,8 @@ import javax.security.auth.login.LoginContext;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.SikuliException;
 
 public class TestBase{
 	
@@ -50,11 +55,12 @@ public class TestBase{
 	@Test
 	
 	//Test Cases
-	public void TestCases() throws InterruptedException{
+	public void TestCases() throws InterruptedException, SikuliException{
 		
 		//Login
 		
 		re_usables.Login();
+		re_usables.uploadCode();
 		
 		//re_usables.DocumentStoppage();
 		
@@ -64,11 +70,11 @@ public class TestBase{
 		
 		//user creation
 		
-		re_usables.CreateUser();
+		//re_usables.CreateUser();
 		
 		//delete user
 		
-		re_usables.DeleteUser();
+		//re_usables.DeleteUser();
 		
 		
 	}
